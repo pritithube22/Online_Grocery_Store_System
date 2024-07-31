@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+{% block body %}
+ <div class="row"><h3>COMPETITION</h3></div>
+  <div class="row">
+    <div class="col-md-4">
+      {% with messages = get_flashed_messages()  %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+      <div class="card card-body">
+        <form action="{{url_for('add_student')}}" method="POST">
+           <label for="stype">{{idn}}</label>
+           <br>
+          <div class="form-group">
+           <label for="stype">Type</label>
+            <select name="stype" id="stype"  style="width: 307px">
+            <option value="default" selected="">Competition Type</option>
+            <option value="solo">Solo</option>
+            <option value="group">Group</option>
+          </select>
+          </div>
+
+          <div class="form-group">
+           <label for="sname">Competition Name:</label>
+            <select name="sname" id="mySelect"  style="width: 307px">
+            <option value="default" selected="">Competition Name</option>
+            {% for lol in lol%}
+            <option value="{{lol[0]}}">{{lol[0]}}</option>
+            {% endfor %}
+          </select>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" name="place" placeholder="Place">
+          </div>
+
+          <div class="form-group">
+            <label >Levels</label>
+          <select name="level" id="level"  style="width: 307px">
+            <option value="default" selected="">Competition level</option>
+            <option value="Local">Local</option>
+            <option value="Zonal">Zonal</option>
+            <option value="State">State</option>
+            <option value="National">National</option>
+            <option value="International">International</option>
+          </select>
+          </div>
+
+          <div class="form-group">
+            <input type="date" class="form-control" name="sdate">
+          </div>
+         
+          <button class="btn btn-primary btn-block">
+            Save
+          </button>        
+      </div> 
+    </div>
+    <div class="col-md-8">
+      <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+          <tr>
+            <td>Roll No</td>
+            <td>Name</td>
+            <td>Sport</td>
+            <td>Mobile No</td>
+            <td>Selection</td>
+          </tr>
+        </thead>
+
+          {% for data in student %}
+          <tr>
+            <td>{{data[0]}}</td>
+            <td>{{data[1]}}</td>
+            <td>{{data[2]}}</td>
+            <td>{{data[3]}}</td>
+            <td width="130">
+             <input type="checkbox" name="select" id="select" value="{{data[0]}}">
+            </td>
+          </tr>
+          {% endfor %}
+      </table>
+
+<script type="text/javascript">
+  // Get the select box and table elements
+var selectBox = document.getElementById("mySelect");
+var table = document.getElementById("myTable");
+
+// Listen for a change event on the select box
+selectBox.addEventListener("change", function() {
+  // Get the selected option
+  var selectedOption = selectBox.value;
+  
+  // Loop through the table rows
+  for (var i = 0; i < table.rows.length; i++) {
+    var row = table.rows[i];
+    
+    // Check if the row matches the selected option
+    if (row.cells[2].innerHTML == selectedOption) {
+      // Show the row if it matches the selected option
+      row.style.display = "";
+      
+
+    } else {
+      // Hide the row if it doesn't match the selected option
+      row.style.display = "none";
+    }
+  }
+});
+
+</script>
+</form>
+    </div>
+  </div>
+</div>
+{% endblock %}

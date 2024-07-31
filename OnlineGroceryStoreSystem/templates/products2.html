@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Freshcery | Groceries Organic Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+    
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="static/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="static/css/aos.css">
+
+    <link rel="stylesheet" href="static/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="static/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="static/css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="static/css/flaticon.css">
+    <link rel="stylesheet" href="static/css/icomoon.css">
+    <link rel="stylesheet" href="static/css/style.css">
+  </head>
+  <body class="goto-here">
+        <div class="py-1 bg-primary">
+        <div class="container">
+            <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+                <div class="col-lg-12 d-block">
+                    <div class="row d-flex">
+                        <div class="col-md pr-4 d-flex topper align-items-center">
+                            <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+                            <span class="text">+91 - 8899889900</span>
+                        </div>
+                        <div class="col-md pr-4 d-flex topper align-items-center">
+                            <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+                            <span class="text">freshcery@gmail.com</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">Freshcery</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+          </button>
+
+          <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"><a href="/index2" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="about2.html" class="nav-link">About</a></li>
+             <li class="nav-item"><a href="contact2.html" class="nav-link">Contact</a></li>
+            <!-- <li class="nav-item"><a href="login1.html" class="nav-link">Sign Up</a></li> -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{fname}} {{lname}}</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+                <a class="dropdown-item" href="logout">Logout</a>
+                <!-- <a class="dropdown-item" href="register1.html">Register</a> -->
+                <!-- <a class="dropdown-item" href="/logout">Logout</a> -->
+                <!-- <a class="dropdown-item" href="cart.html">Cart</a>
+                <a class="dropdown-item" href="checkout.html">Checkout</a> -->
+              </div>
+            </li>
+
+            <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span></a></li>
+
+          </ul>
+        </div>
+        </div>
+      </nav>
+    <!-- END nav -->
+
+    <div class="hero-wrap hero-bread" style="background-image: url('static/images/about3.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Products</span></p>
+            <h1 class="mb-0 bread">Fresh Products</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="our-publication pt-100 pb-70">
+            <div class="container">
+                <!-- <div class="section-header">
+                    <i class="fa fa-book"></i>
+                    <h2>VCK Co. Ltd</h2>
+                    <p>We are the largest selling company</p>
+                </div> -->
+                 
+                <div class="row">
+    {% for product in products %}
+
+                    <div class="col-sm-6 col-lg-3"> 
+      <form method="post" action="/add">
+                        <div class="single-publication">
+                            <figure style="width:263px;">
+                                
+                                <a href="#">
+                                    
+                                    <img src="static/images/{{product[8]}}"width="150" height="200">
+                                    
+                                </a>
+                                <!-- <ul>
+                                    <li><a href="#" title="Add to Favorite"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="#" title="Add to Compare"><i class="fa fa-refresh"></i></a></li>
+                                    <li><a href="#" title="Quick View"><i class="fa fa-search"></i></a></li>
+                                </ul> -->
+                            </figure>
+ 
+                            <div class="publication-content">
+                                <span class="category">{{ product[1] }}</span>
+                                <h3><a href="#">{{ product[3] }}</a></h3>
+                                <ul>
+                                    <li><i class="icofont-star"></i></li>
+                                    <li><i class="icofont-star"></i></li>
+                                    <li><i class="icofont-star"></i></li>
+                                    <li><i class="icofont-star"></i></li>
+                                    <li><i class="icofont-star"></i></li>
+                                </ul>
+                                <h4 class="price"> Rs .{{ product[6] }}   {{product[5]}}</h4>
+                            </div>
+ 
+                            <div class="add-to-cart">
+        <input type="hidden" name="code" value="{{ product[4] }}"/>
+        <input type="text" class="product-quantity" name="quantity" value="1" size="2" />
+        <input type="submit" value="Add to Cart" class="default-btn" />
+                            </div>
+                        </div>
+      </form>
+                    </div>
+                {% endfor %}    
+                     
+                </div>
+            </div>
+        </section>
+
+        
+     <footer class="ftco-footer ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="mouse">
+            <a href="#" class="mouse-icon">
+              <div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+            </a>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Freshcery</h2>
+              <p>The treasure of a good life is hidden in groceries.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Menu</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Shop</a></li>
+                <li><a href="#" class="py-2 d-block">About</a></li>
+                <li><a href="#" class="py-2 d-block">Journal</a></li>
+                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Help</h2>
+              <div class="d-flex">
+                <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+                  <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
+                  <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
+                  <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
+                  <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+                </ul>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="py-2 d-block">FAQs</a></li>
+                  <li><a href="#" class="py-2 d-block">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Have a Questions?</h2>
+              <div class="block-23 mb-3">
+                <ul>
+                  <li><span class="icon icon-map-marker"></span><span class="text">2130 E Ward,Tarabai Park, Pune 416213</span></li>
+                  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 - 8899889900</span></a></li>
+                  <li><a href="#"><span class="icon icon-envelope"></span><span class="text">freshcery@gmail.com</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  <i class="icon-heart color-danger" aria-hidden="true"></i> by Priti & Vidira
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+
+          <!-- <div class="preloader flex-column justify-content-center align-items-center">
+              <img class="animation__shake" src="static/admin/dist/img/logo.png" alt="logo" height="300" width="300">
+          </div> -->
+          
+        </div>
+      </div>
+    </footer>
+    
+    <style>
+.pt-100 {
+                padding-top: 100px;
+            }
+            .pb-70 {
+                padding-bottom: 70px;
+            }
+            .section-header {
+                margin-bottom: 60px;
+                text-align: center;
+            }
+            .section-header i {
+                color: #ff007d;
+                font-size: 50px;
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+            .section-header h2 {
+                font-weight: bold;
+                font-size: 34px;
+                margin: 0;
+            }
+            .section-header p {
+                max-width: 500px;
+                margin: 20px auto 0;
+            }
+            .single-publication {
+                border: 1px solid #f2eee2;
+                margin-bottom: 30px;
+                position: relative;
+                overflow: hidden;
+            }
+            .single-publication figure {
+                position: relative;
+                margin: 0;
+                text-align: center;
+            }
+            .single-publication figure > a {
+                background-color: #fafafa;
+                display: block;
+            }
+            .single-publication figure ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+                right: -50px;
+                top: 20px;
+                transition: .6s;
+                -webkit-transition: .6s;
+            }
+            .single-publication:hover figure ul {
+                right: 15px;
+            }
+            .single-publication figure ul li a {
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                text-align: center;
+                font-size: 15px;
+                background: #ff007d;
+                margin-bottom: 7px;
+                border-radius: 50%;
+                line-height: 35px;
+                color: #fff;
+            }
+            .single-publication figure ul li a:hover {
+                color: #fff;
+                background: #e50663;
+            }
+            .single-publication .publication-content {
+                text-align: center;
+                padding: 20px;
+            }
+            .single-publication .publication-content .category {
+                display: inline-block;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 14px;
+                color: #ff007d;
+                font-weight: 600;
+            }
+            .single-publication .publication-content h3 {
+                font-weight: 600;
+                margin: 8px 0 10px;
+                font-size: 20px;
+            }
+            .single-publication .publication-content h3 a {
+                color: #1f2d30;
+            }
+            .single-publication .publication-content h3 a:hover {
+                color: #ff007d;
+            }
+            .single-publication .publication-content ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                margin-bottom: 15px;
+            }
+            .single-publication .publication-content ul li {
+                display: inline-block;
+                font-size: 18px;
+                color: #fec42d;
+            }
+            .single-publication .publication-content .price {
+                font-size: 18px;
+                color: #ff007d;
+            }
+            .single-publication .publication-content .price span {
+                color: #6f6f6f;
+                text-decoration: line-through;
+                padding-left: 5px;
+                font-weight: 300;
+            }
+            .single-publication .add-to-cart {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: #fff;
+                opacity: 0;
+                visibility: hidden;
+                text-align: center;
+                -webkit-transform: scale(.7);
+                transform: scale(.7);
+                height: 105px;
+                -moz-transition: .4s;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+            .single-publication:hover .add-to-cart {
+                visibility: visible;
+                transform: scale(1);
+                -webkit-transform: scale(1);
+                opacity: 1;
+            }
+            .single-publication .add-to-cart .default-btn {
+                margin-top: 28px;
+                padding: 8px 25px;
+                font-size: 14px;
+            }
+            .single-publication .category {
+                margin: 0;
+            }
+            .single-publication .add-to-cart .default-btn {
+                margin-top: 28px;
+                padding: 8px 25px;
+                font-size: 14px;
+            }
+            .default-btn {
+                background-color: #ff007d;
+                color: #fff;
+                border: 1px solid #ff007d;
+                display: inline-block;
+                padding: 10px 30px;
+                border-radius: 30px;
+                text-transform: uppercase;
+                font-weight: 600;
+                font-family: 'Open Sans', sans-serif;
+            }
+            .default-btn:hover {
+                color: #fff;
+                text-decoration: none;
+            }
+</style>  
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="static/js/popper.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/js/jquery.easing.1.3.js"></script>
+  <script src="static/js/jquery.waypoints.min.js"></script>
+  <script src="static/js/jquery.stellar.min.js"></script>
+  <script src="static/js/owl.carousel.min.js"></script>
+  <script src="static/js/jquery.magnific-popup.min.js"></script>
+  <script src="static/js/aos.js"></script>
+  <script src="static/js/jquery.animateNumber.min.js"></script>
+  <script src="static/js/bootstrap-datepicker.js"></script>
+  <script src="static/js/scrollax.min.js"></script>
+  <script src="static/js/google-map.js"></script>
+  <script src="static/js/main.js"></script>
+    
+  </body>
+</html>

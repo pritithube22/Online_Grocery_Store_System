@@ -1,0 +1,15 @@
+<!doctype html>
+<title>Python Flask File Generate PDF Report from MySQL</title>
+<h2>Generate PDF Report from MySQL</h2>
+<form action="http://127.0.0.1:5000/download/cat_wise_prod_report/pdf" method="POST">
+   	<select id="cat_name" name="cat_name" size="1">
+   	
+        <option value="None">Select Category</option>
+          {% for data in data %}
+                <option value="{{ data[1] }}">{{ data[1] }}</option>
+          {% endfor %}
+        </select>
+	<!-- <label>Enter Type : </label><input type="text" name="type"> -->
+	<input type="submit" value="submit">
+</form>
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"/>
+    <title>How to Align Responsive Image in Center in Bootstrap</title>
+  <style>
+body {
+  background: #883;
+}
+
+.content {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="content">
+    <div>
+      <div class="row">
+        <div class="mx-auto col-10 col-md-8 col-lg-6">
+          <!-- Form -->
+          <form action="/update_category/{{collection[0]}}" method="POST">
+            
+            
+            <!-- Input fields -->
+            <!-- <div class="form-group">
+              <label for="username"><h5>Customer ID:</h5></label>
+              <input class="input--style-4" type="text" name="cust_id" value="{{collection[0]}} ">
+            </div> -->
+            <br>
+            <div class="form-group">
+              <label for="cust_name"><h5>category Name:</h5></label>
+              <input class="input--style-4" type="text" name="cat_name" value="{{collection[1]}} ">
+            </div>
+            <br>
+            <b><label>Category Image : </label><br></b>
+                        <div class="form-group">
+                            <input type="file" id="input_303" name="image" class="form-uplod" data-imagevalidate="yes" data-file-accept="jpg,jpeg,pnj" data-file-maxsize="10240" data-file-minsize="0" data-file-limit="0" data-component="fileupload" placeholder="category image" value='{{collection[2]}}'>
+<!-- <label for="agree-term" class="label-agree-term"><span><span></span></span>Remember me</label> -->
+                        </div>
+
+
+
+            <!-- <div class="form-group">
+              <label for="time"><h5>Time:</h5></label>
+              <div class="p-t-10">
+                <label class="radio-container m-r-45">Morning
+                  <input type="radio" checked="checked" value="{{collection[2]}}" id="morning" name="daytime">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="radio-container m-r-45">Evening
+                  <input type="radio" checked='checked' value="{{collection[2]}}" id="evening"  name="daytime">
+                  <span class="checkmark"></span>
+                </label>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="username"><h5>Customer Name:</h5></label>
+              <input class="input--style-4" type="text" value ="{{collection[1]}}" name="name">
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="Date"><h5>Date:</h5></label>
+              <input class="input--style-4" type="date" value="{{collection[3]}}" name="day">
+            </div>
+            <br>
+            <div class="input-group-r">
+        <label class="label"><h5>Milk Type</h5></label>
+        <div class="p-t-10">
+            <label class="radio-container m-r-45">Buffallo
+                <input type="radio" checked="checked" name="milk_type" id="buffallo" value="{{collection[4]}}">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-container">Cow
+                <input type="radio"  checked="checked" value="cow" id="cow" name="milk_type" value="{{collection[4]}}">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="Milk Quantity"><h5>Milk Quantity:</h5></label>
+      <input class="input--style-4" type="text" value="{{collection[5]}}" name="quantity">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="Fat"><h5>Fat:</h5></label>
+      <input class="input--style-4" type="text" name="fat" value="{{collection[6]}} ">
+    </div>
+      <br>
+    <div class="form-group">
+      <label for="SNF"><h5>SNF:</h5></label>
+      <input class="input--style-4" type="text" name="SNF" value="{{collection[7]}} ">
+    </div>
+      <br>
+    <div class="form-group">
+      <label for="Degree"><h5>Degree:</h5></label>
+      <input class="input--style-4" type="text" name="degree" value="{{collection[8]}} ">
+    </div>
+ -->
+    <br>
+            <button type="submit" class="btn btn-default">Update</button>
+          </form>
+          <!-- Form end -->
+        </div>
+      </div>
+    </div>
+</div>
+    <!-- Bootstrap Bundle with Popper -->
+  
+  </body>
+</html>

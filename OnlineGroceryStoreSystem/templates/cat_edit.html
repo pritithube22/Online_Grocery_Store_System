@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Add Product</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="static/sample/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="static/sample/css/style.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" lt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <form method="POST" id="signup-form" class="signup-form" action="/update_collection/{{collection[0]}}">
+                        {% if msg is defined and msg %}
+                        <p>{{msg}}</p>
+                        {% endif %}
+                        <h2 class="form-title">Add Product </h2>
+                        
+                        <!-- <div class="form-group">
+                            <input type="text" class="form-input" name="cat_id" id="cat_id" placeholder="Add Product ID" value="cat_id">
+                        </div> -->
+
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="product_name" id="product_name"  value='{{collection[1]}}' required />
+                        </div>
+
+                        
+                        <b><label>Product Image : </label><br></b>
+                        <div class="form-group">
+                            <input type="file" name="image"  class="from-uplod" data-imagevalidate='yes' data-file-accept="jpg,jpeg,png" data-file-maxsize='10240' data-file-minisize='0' data-file-limit="0" data-component='fileupload' placeholder="catagory image" required value="{{collection[2]}}">
+                            <!-- <label for="agree-term" class="label-agree-term"><span><span></span></span>Remember me</label> -->
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Submit"/>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="static/sample/vendor/jquery/jquery.min.js"></script>
+    <script src="static/sample/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

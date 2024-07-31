@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Freshcery | Groceries Organic Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+    
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="static/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="static/css/aos.css">
+
+    <link rel="stylesheet" href="static/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="static/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="static/css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="static/css/flaticon.css">
+    <link rel="stylesheet" href="static/css/icomoon.css">
+    <link rel="stylesheet" href="static/css/style.css">
+  </head>
+  <body class="goto-here">
+    <div class="py-1 bg-primary">
+      <div class="container">
+        <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+          <div class="col-lg-12 d-block">
+            <div class="row d-flex">
+              <div class="col-md pr-4 d-flex topper align-items-center">
+                <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+                <span class="text">+91 - 8899889900</span>
+              </div>
+              <div class="col-md pr-4 d-flex topper align-items-center">
+                <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+                <span class="text">freshcery@gmail.com</span>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Freshcery</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"><a href="/index2" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="about2.html" class="nav-link">About</a></li>
+             <li class="nav-item"><a href="contact2.html" class="nav-link">Contact</a></li>
+            <!-- <li class="nav-item"><a href="login1.html" class="nav-link">Sign Up</a></li> -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{fname}} {{lname}}</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+                <a class="dropdown-item" href="logout">Logout</a>
+                <!-- <a class="dropdown-item" href="register1.html">Register</a> -->
+                <!-- <a class="dropdown-item" href="/logout">Logout</a> -->
+                <!-- <a class="dropdown-item" href="cart.html">Cart</a>
+                <a class="dropdown-item" href="checkout.html">Checkout</a> -->
+              </div>
+            </li>
+
+            <!-- <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span></a></li> -->
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- END nav -->
+
+    <div class="hero-wrap hero-bread" style="background-image: url('static/images/about3.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Cart</span></p>
+            <h1 class="mb-0 bread">My Cart</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section ftco-cart">
+			<div class="container">
+				<div class="row">
+					{% if 'cart_item' in session %}
+    			<div class="col-md-12 ftco-animate">
+    				<div class="cart-list">
+    					
+	    				<table class="table">
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>&nbsp;</th>
+						        <th>&nbsp;</th>
+						        <th>Product name</th>
+						        <th>Price</th>
+						        <th>Quantity</th>
+						        <th>Total</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						    	{% for key, val in session['cart_item'].items() %}
+     							<!-- {% set quantity = session['cart_item'][key]['quantity'] %} -->
+     							{% set price = session['cart_item'][key]['price'] %}
+     							{% set item_price = session['cart_item'][key]['total_price'] %} 
+						      <tr class="text-center">
+						        <td class="product-remove"><a href="{{ url_for('.delete_product', code=session['cart_item'][key]['code']) }}"><span class="ion-ios-close"></span></a></td>
+						        
+						        <td class="image-prod"><img src="static/images/{{ session['cart_item'][key]['image'] }} " height='100' width='100'></img></td>
+						        
+						        <td class="product-name">
+						        	<h3>{{ session['cart_item'][key]['veg_name'] }}</h3>
+						        	<!-- <p>Far far away, behind the word mountains, far from the countries</p> -->
+						        </td>
+						        
+						        <td class="price">{{ item_price }}</td>
+
+						        <td class="cart-product-quantity" width="130px">
+        									<div class="input-group quantity">
+            									<div class="input-group-prepend decrement-btn" style="cursor: pointer">
+               								 <span class="input-group-text">-</span>
+            							</div>
+           								 <input type="text" class="qty-input form-control" maxlength="2" max="10" value="{{ quantity }} " name="quantity">
+           							 <div class="input-group-append increment-btn" style="cursor: pointer">
+								                <span class="input-group-text">+</span>
+								            </div>
+								        </div>
+								    </td> 
+						        
+						        						        
+						        <td class="total">{{ item_price }}</td>
+						      {% endfor %}  
+						      </tr><!-- END TR-->
+
+						      
+						    </tbody>
+						  </table>
+					  </div>
+    			</div>
+    		</div>
+    		
+    			
+    			<div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+    				<div class="cart-total mb-3">
+    					<form action="/checkout" method="POST">
+    					<h3>Cart Totals</h3>
+    					<p class="d-flex">
+    						<span>Total Quantity</span>
+    						<span>{{ session['all_total_quantity'] }}</span>
+    					</p>
+    					<p class="d-flex">
+    						<span>Total</span>
+    						<span>{{ session['all_total_price'] }}</span>
+    					</p>
+    					<!-- <p class="d-flex">
+    						<span>Dilivery Charge </span>
+    						<span>{{ dilivery_charge }}</span>
+    					</p>
+    					<hr>
+    					<p class="d-flex total-price">
+    						<span>Net Total</span>
+    						<span>{{ overall_price }}</span>
+    					</p> -->
+    				</div>
+    				<p><input type="submit" name="checkout" class="btn btn-primary py-3 px-4"  id="checkout" value="Proceed to Checkout"></p>
+    			</form>
+
+
+    		{% else: %}
+    		<p>Your Cart is Empty</p>	
+    		{% endif %}	
+    				
+    			</div>
+    		</div>
+			</div>
+		</section>
+
+		
+    <footer class="ftco-footer ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="mouse">
+            <a href="#" class="mouse-icon">
+              <div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+            </a>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Freshcery</h2>
+              <p>The treasure of a good life is hidden in groceries.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Menu</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Shop</a></li>
+                <li><a href="#" class="py-2 d-block">About</a></li>
+                <li><a href="#" class="py-2 d-block">Journal</a></li>
+                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Help</h2>
+              <div class="d-flex">
+                <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+                  <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
+                  <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
+                  <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
+                  <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+                </ul>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="py-2 d-block">FAQs</a></li>
+                  <li><a href="#" class="py-2 d-block">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Have a Questions?</h2>
+              <div class="block-23 mb-3">
+                <ul>
+                  <li><span class="icon icon-map-marker"></span><span class="text">2130 E Ward,Tarabai Park, Pune 416213</span></li>
+                  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 - 8899889900</span></a></li>
+                  <li><a href="#"><span class="icon icon-envelope"></span><span class="text">freshcery@gmail.com</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  <i class="icon-heart color-danger" aria-hidden="true"></i> by Priti & Vidira
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+
+          <!-- <div class="preloader flex-column justify-content-center align-items-center">
+              <img class="animation__shake" src="static/admin/dist/img/logo.png" alt="logo" height="300" width="300">
+          </div> -->
+          
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="static/js/popper.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/js/jquery.easing.1.3.js"></script>
+  <script src="static/js/jquery.waypoints.min.js"></script>
+  <script src="static/js/jquery.stellar.min.js"></script>
+  <script src="static/js/owl.carousel.min.js"></script>
+  <script src="static/js/jquery.magnific-popup.min.js"></script>
+  <script src="static/js/aos.js"></script>
+  <script src="static/js/jquery.animateNumber.min.js"></script>
+  <script src="static/js/bootstrap-datepicker.js"></script>
+  <script src="static/js/scrollax.min.js"></script>
+  <script src="static/js/google-map.js"></script>
+  <script src="static/js/main.js"></script>
+
+  <script>
+		// Rs.(document).ready(function(){
+
+		// var quantity=0;
+		//    Rs.('.quantity-right-plus').click(function(e){
+		        
+		//         // Stop acting like a button
+		//         e.preventDefault();
+		//         // Get the field name
+		//         var quantity = parseInt(Rs.('#quantity').val());
+		        
+		//         // If is not undefined
+		            
+		//             Rs.('#quantity').val(quantity + 1);
+
+		          
+		//             // Increment
+		        
+		//     });
+
+		//      Rs.('.quantity-left-minus').click(function(e){
+		//         // Stop acting like a button
+		//         e.preventDefault();
+		//         // Get the field name
+		//         var quantity = parseInt(Rs.('#quantity').val());
+		        
+		//         // If is not undefined
+		      
+		//             // Increment
+		//             if(quantity>0){
+		//             Rs.('#quantity').val(quantity - 1);
+		//             }
+		//     });
+		    
+		// });
+
+
+		$(document).ready(function () {
+
+        $('.increment-btn').click(function (e) {
+            e.preventDefault();
+            var incre_value = $(this).parents('.quantity').find('.qty-input').val();
+            var value = parseInt(incre_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value<10){
+                value++;
+                $(this).parents('.quantity').find('.qty-input').val(value);
+            }
+
+        });
+
+        $('.decrement-btn').click(function (e) {
+            e.preventDefault();
+            var decre_value = $(this).parents('.quantity').find('.qty-input').val();
+            var value = parseInt(decre_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value>1){
+                value--;
+                $(this).parents('.quantity').find('.qty-input').val(value);
+            }
+        });
+
+    });
+
+	</script>
+    
+  </body>
+</html>

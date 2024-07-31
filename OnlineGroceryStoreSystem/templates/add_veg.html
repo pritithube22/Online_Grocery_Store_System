@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Products Form</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="static/sample/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="static/sample/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini">
+
+<div class="wrapper">
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="static/admin/dist/img/logo.png" alt="logo" height="300" width="300">
+  </div>
+  
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      
+    </ul>
+
+    <!-- Right navbar links -->
+    
+  </nav>
+<aside class="main-sidebar sidebar-white-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="adminindex.html" class="brand-link">
+      <img src="static/admin/dist/img/logo.png" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Freshcery</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+       <!-- Sidebar user panel (optional)  -->
+      <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="static/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Farmers Market</a>
+        </div>
+      </div> -->
+
+      <!-- SidebarSearch Form -->
+      <!-- <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <a href="/dash" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+                <!-- <i class="right fas fa-angle-left"></i> -->
+              </p>
+            </a>
+            
+          </li>
+          <li class="nav-item">
+            <a href="category.html" class="nav-link  ">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Category
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a href="/vegetable" class="nav-link ">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Products
+                <!-- <i class="fas fa-angle-left right"></i> -->
+              </p>
+            </a>
+            
+          </li>
+          <li class="nav-item">
+            <a href="/add_category" class="nav-link " >
+              <i class="nav-icon far fa-plus-square"></i>
+              <p>
+                Add Category
+                <!-- <span class="badge badge-info right">2</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/add_veg" class="nav-link active">
+              <i class="nav-icon far fa-plus-square"></i>
+              <p>
+                Add Products
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Freshcery</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div>
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Add Products Form</h3>
+              </div>
+              
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="POST"  action="/add_veg" name="my-form1">
+                <div class="card-body">
+                  
+
+                  {% if msg is defined and msg %}
+                        <p>{{msg}}</p>
+                  {% endif %}
+
+                  <div class="form-group">
+                    <!-- <form name="my-form1" method="POST"> -->
+                    <label for="cat_id">Category ID</label>
+                    <input type="text" class="form-control" id="cat_id" name='cat_id' placeholder="Enter Category ID">
+                    <!-- <script type="text/javascript">
+                      var NameValue = document.forms['my-form1']['nameValidation'].value;
+                    </script>
+
+                  <script
+                  src="https://code.jquery.com/jquery-3.5.1.min.js"
+                  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+                  crossorigin="anonymous">
+                  </script>
+                  <script type="text/javascript">
+                                      $(document).ready(function(){
+                                        $("form[name='my-form1']").submit(function(event) {
+                                          event.preventDefault();
+                                          $.post("/greet1", $(this).serialize())
+                                            .done(function(data) {
+                                              $("#message1").html(data.message1);
+                                               $("#message6").html(data.message6);
+                                            })
+                                            .fail(function() {
+                                              $("#message1").html("Enter Correct UserID.");
+                                            });
+                                        });
+                                      });
+                    </script> -->
+                    </div>
+                  
+                  </div>
+
+                  <!-- </form> -->
+
+                  <div class="form-group">
+
+                    <label for="cat_name">Category Name</label>
+                    <input type="text" class="form-control" id="cat_name" name='cat_name' placeholder="Enter Category Name" required>
+                  </div>
+
+                  <!-- <div class="form-group">
+                    <label for="veg_id">Vegetable ID</label>
+                    <input type="text" class="form-control" name='veg_id' id="veg_id" placeholder="Enter Vegetable ID">
+                  </div> -->
+
+                  <div class="form-group">
+                    <label for="veg_name">Product Name</label>
+                    <input type="text" class="form-control" id="veg_name" name='veg_name' placeholder="Enter Product Name" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="code">Code</label>
+                    <input type="text" class="form-control" id="code" name='code' placeholder="Enter code" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="uom">Unit</label>
+                    <input type="text" class="form-control" id="uom"  name='uom' placeholder="Enter Unit" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="rate">Rate(Per KG/Ltr)</label>
+                    <input type="text" class="form-control" id="rate"  name='rate' placeholder="Enter Rate" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="stock">Stock</label>
+                    <input type="text" class="form-control" id="stock" name='stock'  placeholder="Enter Stock" required>
+                  </div>
+
+
+
+                  <div class="form-group">
+                    <label for="exampleInputFile">Product Image</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="image"  data-imagevalidate='yes' data-file-accept="jpg,jpeg,png" data-file-maxsize='10240' data-file-minisize='0' data-file-limit="0" data-component='fileupload' placeholder="Image" required>
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <!-- <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                      </div> -->
+                    </div>
+                  </div>
+                  <!-- <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div>
+                </div> -->
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+
+            </div>
+
+          </div>
+
+            <!-- /.card -->
+          </div>
+          <!--/.col (left) -->
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="static/sample/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="static/sample/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="static/sample/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="static/sample/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="static/sample/dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+</body>
+</html>
